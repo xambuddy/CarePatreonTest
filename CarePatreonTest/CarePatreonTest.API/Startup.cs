@@ -1,10 +1,12 @@
 ﻿using CarePatreonTest.API.AppStart;
+using CarePatreonTest.API.Hubs;
 using CarePatreonTest.Application.Commands;
 using CarePatreonTest.Application.Extensions;
 using CarePatreonTest.Application.Profiles;
 using CarePatreonTest.Infrastructure.Extensions;
 using CarePatreonTest.Infrastructure.Filters;
 using MediatR;
+using Microsoft.AspNetCore.SignalR;
 using Serilog;
 using System.Text.Json;
 using System.Transactions;
@@ -40,6 +42,7 @@ namespace CarePatreonTest.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotificationHub>("/notificationHub");
             });
         }
 
@@ -69,6 +72,7 @@ namespace CarePatreonTest.API
                 options.IsAutoResourceCreationIfNotExistsEnabled = true;
             });
 
+            services.AddSingleton<IUserIdProvider, UserIdProvider>();
             services.AddMediatR(typeof(Transaction), typeof(CreateClientCommand));
 
             services.ConfigureAuthentication(this.Configuration);
@@ -112,6 +116,16 @@ namespace CarePatreonTest.API
                     o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                     o.JsonSerializerOptions.WriteIndented = true;
                 });
+
+            services.AddSignalR()
+            .AddJsonProtocol(p =>
+            {
+                p.PayloadSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                p.PayloadSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+                p.PayloadSerializerOptions.PropertyNameCaseInsensitive = true;
+                p.PayloadSerializerOptions.WriteIndented = true;
+            })
+            .AddAzureSignalR();
 
             services.AddEndpointsApiExplorer();
 

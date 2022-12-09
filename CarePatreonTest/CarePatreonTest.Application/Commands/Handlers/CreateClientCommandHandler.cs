@@ -3,6 +3,7 @@ using CarePatreonTest.Application.Commands.Responses;
 using CarePatreonTest.Application.Exceptions;
 using CarePatreonTest.Application.Models;
 using CarePatreonTest.Core.Entities;
+using CarePatreonTest.Core.Enums;
 using FluentValidation;
 using MediatR;
 using Microsoft.Azure.CosmosRepository;
@@ -41,7 +42,7 @@ namespace CarePatreonTest.Application.Commands.Handlers
             client = await this.clientRepository.CreateAsync(client, cancellationToken);
 
             await this.clientDomainEventRepository.CreateAsync(
-                new ClientDomainEvent(client, client.Id, "ClientCreated"),
+                new ClientDomainEvent(client, client.Id, nameof(DomainEventTypes.ClientCreated), new List<string> { request.UserId }),
                 cancellationToken);
 
             var clientDto = this.mapper.Map<ClientDto>(client);

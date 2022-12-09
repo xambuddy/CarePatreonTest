@@ -7,17 +7,20 @@ namespace CarePatreonTest.Core.Entities
     [PartitionKeyPath("/id")]
     public class ClientDomainEvent : FullItem
     {
-        public ClientDomainEvent(Client data, string clientId, string action)
+        public ClientDomainEvent(Client data, string clientId, string action, IEnumerable<string> receiverIds)
         {
             this.Id = Guid.NewGuid().ToString();
             this.ClientId = clientId;
             this.Action = action;
             this.Data = data;
+            this.ReceiverIds = receiverIds;
         }
 
         public Client Data { get; }
 
         public string ClientId { get; }
+
+        public IEnumerable<string> ReceiverIds { get; }
 
         public string Action { get; }
 

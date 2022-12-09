@@ -42,6 +42,8 @@ namespace CarePatreonTest.API.Controllers
         public async Task<CreateClientCommandResponse> CreateClient([FromBody] CreateClientDto request)
         {
             var createClientCommand = this.mapper.Map<CreateClientCommand>(request);
+            var userId = this.User?.Identity?.Name;
+            createClientCommand.UserId = userId;
 
             var result = await this.mediator.Send(createClientCommand);
 
@@ -58,6 +60,8 @@ namespace CarePatreonTest.API.Controllers
         public async Task<UpdateClientCommandResponse> UpdateClient([FromBody] UpdateClientDto request)
         {
             var updateClientCommand = this.mapper.Map<UpdateClientCommand>(request);
+            var userId = this.User?.Identity?.Name;
+            updateClientCommand.UserId = userId;
 
             var result = await this.mediator.Send(updateClientCommand);
 
