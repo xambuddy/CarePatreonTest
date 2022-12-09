@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CarePatreonTest.Application.Extensions
 {
-    public static class DependencyInjectionConfigService
+    public static class DependencyInjection
     {
         public static void ConfigureApplication(this IServiceCollection services)
         {
