@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CarePatreonTest.API.Controllers
 {
+    /// <summary>
+    /// Client Controller
+    /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]
@@ -17,12 +20,23 @@ namespace CarePatreonTest.API.Controllers
     {
         private IMediator mediator;
         private IMapper mapper;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="mediator"></param>
+        /// <param name="mapper"></param>
         public ClientController(IMediator mediator, IMapper mapper)
         {
             this.mediator = mediator;
             this.mapper = mapper;
         }
 
+        /// <summary>
+        /// Create Client
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<CreateClientCommandResponse> CreateClient([FromBody] CreateClientDto request)
@@ -34,6 +48,11 @@ namespace CarePatreonTest.API.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Update Client
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<UpdateClientCommandResponse> UpdateClient([FromBody] UpdateClientDto request)

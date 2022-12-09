@@ -12,6 +12,7 @@ namespace CarePatreonTest.Application.Profiles
             this.CreateMap<CreateClientDto, CreateClientCommand>();
             this.CreateMap<CreateClientCommand, Client>();
             this.CreateMap<UpdateClientDto, UpdateClientCommand>();
+            this.CreateMap<UpdateClientCommand, Client>();
             this.CreateMap<Client, ClientDto>();
         }
     }

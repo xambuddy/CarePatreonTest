@@ -4,7 +4,7 @@ using Microsoft.Azure.CosmosRepository.Attributes;
 namespace CarePatreonTest.Core.Entities
 {
     [Container("client-events")]
-    [PartitionKeyPath("/clientId")]
+    [PartitionKeyPath("/id")]
     public class ClientDomainEvent : FullItem
     {
         public ClientDomainEvent(Client data, string clientId, string action)
@@ -23,7 +23,7 @@ namespace CarePatreonTest.Core.Entities
 
         protected override string GetPartitionKeyValue()
         {
-            return this.ClientId;
+            return this.Id;
         }
     }
 }

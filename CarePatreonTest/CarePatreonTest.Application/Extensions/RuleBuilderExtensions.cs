@@ -25,9 +25,9 @@ namespace CarePatreonTest.Application.Extensions
         {
             var options = ruleBuilder
                 .NotEmpty()
-                .WithMessage(string.Format(ValidationConstants.Error_Validation_Value_Not_Empty, "email"))
-                .Matches(@"(?:(?:(\s*\(?([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2‌​-9][02-8]1|[2-9][02-8][02-9]))\)?\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9]‌​[02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})")
-                .WithMessage(ValidationConstants.Error_Validation_Email_Invalid_Format);
+                .WithMessage(string.Format(ValidationConstants.Error_Validation_Value_Not_Empty, "phone number"))
+                .Matches("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$")
+                .WithMessage(ValidationConstants.Error_Validation_Phone_Number_Invalid_Format);
 
             return options;
         }
