@@ -7,7 +7,7 @@ namespace CarePatreonTest.Application.Extensions
 {
     public static class DependencyInjection
     {
-        public static void ConfigureApplication(this IServiceCollection services)
+        public static void AddApplication(this IServiceCollection services)
         {
             services.AddSingleton<IValidator<CreateClientCommand>, CreateClientCommandValidator>();
             services.AddSingleton<IValidator<UpdateClientCommand>, UpdateClientCommandValidator>();
