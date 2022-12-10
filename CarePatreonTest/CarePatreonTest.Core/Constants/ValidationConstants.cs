@@ -7,5 +7,6 @@
         public const string Error_Validation_Value_Not_Empty = "{0} must not be empty.";
         public const string Error_Validation_Emain_In_Use = "Email address is already in use.";
         public const string Field_Is_Required = "{0} is required";
+        public const string Error_Validation_Keyword_Invalid = "Keyword is Invalid.";
     }
 }

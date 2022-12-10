@@ -2,6 +2,7 @@
 using CarePatreonTest.Application.Commands;
 using CarePatreonTest.Application.Commands.Responses;
 using CarePatreonTest.Application.Models;
+using CarePatreonTest.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -64,6 +65,26 @@ namespace CarePatreonTest.API.Controllers
             updateClientCommand.UserId = userId;
 
             var result = await this.mediator.Send(updateClientCommand);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Search Clients
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("search")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ReadClientsByKeywordQueryResponse> SearchClient(string keyword)
+        {
+            var query = new ReadClientsByKeywordQuery
+            {
+                Keyword = keyword
+            };
+
+            var result = await this.mediator.Send(query);
 
             return result;
         }
