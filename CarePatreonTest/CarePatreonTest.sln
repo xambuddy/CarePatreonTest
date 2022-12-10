@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarePatreonTest.API", "Care
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{85CF8D75-BF53-45CC-B4BD-AA7DBC8F73F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserClientApp", "UserClientApp\UserClientApp.csproj", "{87B5FF39-8456-4ABE-A2EE-FE289E98AC8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserClientApp", "UserClientApp\UserClientApp.csproj", "{87B5FF39-8456-4ABE-A2EE-FE289E98AC8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarePatreonTest.Application.Tests", "CarePatreonTest.Application.Tests\CarePatreonTest.Application.Tests.csproj", "{7C34B26E-8D0F-4DBE-B9BB-3DF5517A5279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{87B5FF39-8456-4ABE-A2EE-FE289E98AC8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B5FF39-8456-4ABE-A2EE-FE289E98AC8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B5FF39-8456-4ABE-A2EE-FE289E98AC8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C34B26E-8D0F-4DBE-B9BB-3DF5517A5279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C34B26E-8D0F-4DBE-B9BB-3DF5517A5279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C34B26E-8D0F-4DBE-B9BB-3DF5517A5279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C34B26E-8D0F-4DBE-B9BB-3DF5517A5279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
