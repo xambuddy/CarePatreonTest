@@ -118,14 +118,14 @@ namespace CarePatreonTest.API
                 });
 
             services.AddSignalR()
-            .AddJsonProtocol(p =>
-            {
-                p.PayloadSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                p.PayloadSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
-                p.PayloadSerializerOptions.PropertyNameCaseInsensitive = true;
-                p.PayloadSerializerOptions.WriteIndented = true;
-            })
-            .AddAzureSignalR();
+               .AddJsonProtocol(p =>
+               {
+                   p.PayloadSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                   p.PayloadSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+                   p.PayloadSerializerOptions.PropertyNameCaseInsensitive = true;
+                   p.PayloadSerializerOptions.WriteIndented = true;
+               })
+               .AddAzureSignalR();
 
             services.AddEndpointsApiExplorer();
 
